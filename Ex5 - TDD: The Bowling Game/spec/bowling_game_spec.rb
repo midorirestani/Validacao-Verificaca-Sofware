@@ -29,6 +29,25 @@ RSpec.describe BowlingGame do
                 expect(@bowling_game.get_score).to be(20)
             end
         end
+
+        context "one strike test" do
+            it "returns score equals 10 + next two rolls" do
+                @bowling_game.roll(10)
+                @bowling_game.roll(4)
+                @bowling_game.roll(3)
+
+                expect(@bowling_game.get_score).to be(24)
+            end
+        end
+
+        context "perfect game" do
+            it "returns score 300" do
+                roll_many(11, 10)
+
+                expect(@bowling_game.get_score).to be(300)
+            end
+        end
+        
     end
 
     def roll_many(n, pins)
