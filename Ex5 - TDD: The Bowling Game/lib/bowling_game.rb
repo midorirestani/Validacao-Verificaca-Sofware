@@ -1,4 +1,3 @@
-require 'enumerator'
 class BowlingGame
 
     def initialize()
@@ -17,11 +16,9 @@ class BowlingGame
 
         for frame in 0..9
             if is_strike?(frame_index)
-                puts "is strike"
                 score += (10 + strike_bonus(frame_index))
                 frame_index += 1
             elsif is_spare?(frame_index)
-                puts "is spare"
                 score +=  (10 + spare_bonus(frame_index))
                 frame_index += 2
             else
@@ -48,10 +45,4 @@ class BowlingGame
         return (@rolls[frame_index+1]+@rolls[frame_index+2])
     end
 
-    def print_rolls
-        for i in 0..@rolls.length
-            print "#{@rolls[i]} "
-        end
-        puts
-    end
 end
