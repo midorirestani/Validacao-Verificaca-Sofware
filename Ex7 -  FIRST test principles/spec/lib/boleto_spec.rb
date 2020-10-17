@@ -43,6 +43,7 @@ RSpec.describe Boleto do
                 let!(:cpf){ "111.111.111-11" }
                 it "assign a cpf to the boleto" do
                     boleto.validate_and_assign_cpf(cpf)
+                    expect(boleto.cpf).to raise_errors
                 end
             end
         end
